@@ -9,11 +9,12 @@ import com.elevator.fun.domain.ElevatorBank;
 import com.elevator.fun.utils.ApplicationProperties;
 
 public class ElevatorControllerImpl implements ApplicationProperties {
+	private static final Logger logger = LoggerFactory.getLogger(ElevatorControllerImpl.class);
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
+		logger.info("Elevator App: Begin");
 		//set number of floors and elevators
 		//use parameters from command line/call
 		//if no parms, default to mins
