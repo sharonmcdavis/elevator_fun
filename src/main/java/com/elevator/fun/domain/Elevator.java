@@ -20,12 +20,20 @@ public class Elevator {
 	DoorStatus doorStatus;
 	
 	public String moveUp() {
-		currentFloor++;
+		if (currentFloor < ElevatorController.MAX_FLOORS) {
+			currentFloor++;
+			direction = ElevatorStatus.ELEVATOR_UP;
+			
+		}
 		return reportStatus();
 	}
 
 	public String moveDown() {
-		currentFloor--;
+		if (currentFloor > ElevatorController.MIN_FLOORS) {
+			currentFloor--;
+			direction = ElevatorStatus.ELEVATOR_DOWN;
+			
+		}
 		return reportStatus();
 	}
 
