@@ -38,8 +38,16 @@ public class ElevatorBank {
 		}
 	}
 
-	public void moveElevator(Elevator el) {
-		if (el.currentFloor > )
+	public Elevator findElevator(int floor) {
+		
+		//loop through elevators
+		//is elevator in maint mode? skip
+		//is elevator on given floor?, return that elevator
+		//is elevator moving in direction of given floor? return that elevator
+		//is elevator idle, return that elevator
+		return null;
+		
 	}
+
 
 }
