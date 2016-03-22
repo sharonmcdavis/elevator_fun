@@ -18,8 +18,13 @@ public class Elevator {
 	Integer currentFloor;
 	ElevatorStatus direction;
 	DoorStatus doorStatus;
-	
+	int trips = 0;
+	int floors = 0;
+
 	public String move(int floor) {
+		trips++;
+		if (trips == 100) 
+			MaintIn();
 		if (floor > currentFloor)
 			return moveUp();
 		return moveDown();
@@ -29,7 +34,7 @@ public class Elevator {
 		if (currentFloor < ElevatorController.MAX_FLOORS) {
 			currentFloor++;
 			direction = ElevatorStatus.ELEVATOR_UP;
-			
+			floors++;
 		}
 		return reportStatus();
 	}
@@ -38,7 +43,7 @@ public class Elevator {
 		if (currentFloor > ElevatorController.MIN_FLOORS) {
 			currentFloor--;
 			direction = ElevatorStatus.ELEVATOR_DOWN;
-			
+			floors++;		
 		}
 		return reportStatus();
 	}
