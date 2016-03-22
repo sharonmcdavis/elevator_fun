@@ -19,6 +19,12 @@ public class Elevator {
 	ElevatorStatus direction;
 	DoorStatus doorStatus;
 	
+	public String move(int floor) {
+		if (floor > currentFloor)
+			return moveUp();
+		return moveDown();
+	}
+
 	public String moveUp() {
 		if (currentFloor < ElevatorController.MAX_FLOORS) {
 			currentFloor++;
