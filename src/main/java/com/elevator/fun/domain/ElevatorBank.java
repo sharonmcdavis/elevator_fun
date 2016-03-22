@@ -3,24 +3,22 @@ package com.elevator.fun.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.elevator.fun.controller.ElevatorController;
+
 
 
 public class ElevatorBank {
 	List<Elevator> elevatorList;
-	Integer minFloors;
-	Integer minElevators;
-	Integer maxFloors;
-	Integer maxElevators;
+	int minFloors;
+	int minElevators;
+	int maxFloors;
+	int maxElevators;
 	
 	public ElevatorBank() {
 		super();
-	}
-
-	public ElevatorBank(Integer maxFloors, Integer maxElevators) {
-		super();
 		
-		this.maxFloors = maxFloors;
-		this.maxElevators = maxElevators;
+		this.maxFloors = ElevatorController.MAX_FLOORS;
+		this.maxElevators = ElevatorController.MIN_FLOORS;
 		
 		this.elevatorList = new ArrayList<Elevator>();
 		for (int i= 0; i < maxElevators; i++)
@@ -28,16 +26,6 @@ public class ElevatorBank {
 
 	}
 	
-	public Elevator findElevator() {
-		
-		for (int i= 0; i < maxElevators; i++) {
-			//find available elevator
-			//return desired elevator
-			return elevatorList.get(index);
-			
-		}
-	}
-
 	public Elevator findElevator(int floor) {
 		
 		//loop through elevators
@@ -48,6 +36,5 @@ public class ElevatorBank {
 		return null;
 		
 	}
-
 
 }
