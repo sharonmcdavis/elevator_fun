@@ -32,6 +32,12 @@ public class ElevatorControllerImpl implements ApplicationProperties {
 			
 		}
 		
+		//instantiate elevators
+		ElevatorBank elevatorBank = new ElevatorBank(maxFloors, maxElevators);
+
+		Elevator el = elevatorBank.findElevator();
+		el.move
+	
 		
 	}
 
