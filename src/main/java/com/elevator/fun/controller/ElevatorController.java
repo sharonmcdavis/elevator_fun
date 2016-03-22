@@ -1,45 +1,39 @@
-package com.elevator.fun.controller;
+package com.elevator.fun.domain;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.elevator.fun.controller.ElevatorController;
 
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import com.elevator.fun.domain.Elevator;
-import com.elevator.fun.domain.ElevatorBank;
-import com.elevator.fun.utils.ApplicationProperties;
+public class ElevatorBank {
+	List<Elevator> elevatorList;
+	int minFloors;
+	int minElevators;
+	int maxFloors;
+	int maxElevators;
+	
+	public ElevatorBank() {
+		super();
+		
+		this.maxFloors = ElevatorController.MAX_FLOORS;
+		this.maxElevators = ElevatorController.MIN_FLOORS;
+		
+		this.elevatorList = new ArrayList<Elevator>();
+		for (int i= 0; i < maxElevators; i++)
+			this.elevatorList.add(new Elevator());
 
-public class ElevatorController implements ApplicationProperties {
-	private static final Logger logger = LoggerFactory.getLogger(ElevatorController.class);
-	private static ElevatorBank elevatorBank; 
-	public static int MAX_FLOORS = 1;
-	public static int MAX_ELEVATORS = 1;
-	public static int MIN_FLOORS = 1;
-	public static int MIN_ELEVATORS = 1;
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		
-		//set number of floors and elevators
-		//use parameters from command line/call
-		//if no parms, default to mins
-		logger.info("MUReportingApp: Begin");
-		
-		if (args.length > 1) {
-			MAX_FLOORS = Integer.parseInt(args[0]);
-			MAX_ELEVATORS = Integer.parseInt(args[1]);
-			
-		}
-		
-		//instantiate elevators
-		elevatorBank = new ElevatorBank();
-		
 	}
-
-	public static void callElevator(int floor) {
-		Elevator el = elevatorBank.findElevator(floor);
-		el.move(floor);
+	
+	public Elevator findElevator(int floor) {
 		
+		//loop through elevators
+		//is elevator in maint mode? skip
+		//is elevator on given floor?, return that elevator
+		//is elevator moving in direction of given floor? return that elevator
+		//is elevator idle, return that elevator
+		return null;
 		
 	}
 
