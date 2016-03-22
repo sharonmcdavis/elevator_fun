@@ -13,5 +13,6 @@ public interface ApplicationProperties {
 		DOOR_CLOSE
 	}
 	
-	
+	public static final Integer MIN_ELEVATORS = 1;
+	public static final Integer MIN_FLOORS= 1;
 }
